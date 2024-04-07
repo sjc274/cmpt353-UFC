@@ -9,7 +9,7 @@ The Ultimate Fighting Championship (UFC) is the largest and most prominent mixed
 This project is aim to build up machine learning models with UFC fighters' stature and fighting skill data, analyze the important features that effect the win or lose of each fight, and eventually predict the result of fights.
 ## Important Links 🔗
 
-| [Dataset Download](https://www.kaggle.com/datasets/mdabbert/ultimate-ufc-dataset) | [Project report](https://www.google) 
+| [Dataset Download](https://www.kaggle.com/datasets/mdabbert/ultimate-ufc-dataset) | [Project report](https://docs.google.com/document/d/1YDo83rJPjpeeZwfCXiJiUb2g-wpk8kBKlAW805uosUw/edit?usp=sharing) 
 
 
 - Dataset Download: Link to download the dataset of this project.
