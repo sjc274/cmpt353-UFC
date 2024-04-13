@@ -76,7 +76,7 @@ for idx, feature in enumerate(['Height_cms', 'Reach_cms', 'Weight_lbs'], start=1
     plt.ylabel('Probability Density')
     plt.grid(True)
 ```
-
+<a name="installation"></a>
 ## 2. Installation
 You can check all results and graphs quickly by checking jupyter notebook files under `ipynb` folder
 
