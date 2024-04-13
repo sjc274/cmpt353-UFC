@@ -38,6 +38,7 @@ Steps to run:
 1) Inorder to run our data, you would first have to download the raw data, rename it to "fight_data.csv" and then run the clean data python file.
 2) You can run any of the Python files as you like since they are not codependent on each other from the src folder.
 3) You can also simply check our Jupiter notebook versions of our file as well in the ipynb folder.
+
 Note: We have kept the raw and cleaned data in the folders so you can skip the first step if you would like.
 
 1) ### Data Cleaning
