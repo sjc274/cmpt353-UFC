@@ -53,7 +53,7 @@ for round_num, percentage in round_distribution.items():
     missing_rows['finish_round'] -= num_missing
 ```
 
-3) ### Machine Learning
+2) ### Machine Learning
  - It makes use of several machine-learning algorithms and there is a comparison between the models at the end.
  - To see this part, either you can directly use 'Machine learning.ipynb' notebook or you can use the 'Machine learning.py' file in the src
    ``` cmd
@@ -63,7 +63,7 @@ for round_num, percentage in round_distribution.items():
    The outputs for notebook files are embedded in the notebook itself. For the python files, it will display some information on screen and save the plots
    in the the same folder
 
-4) ### Stature Data
+3) ### Stature Data
 - To analyze the feature importance: `python3 StatureDataAnalysis.py`
 We made use of built-in feature `feature_importance_` to testify the feature importance:
 ```python
