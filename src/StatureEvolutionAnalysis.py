@@ -81,43 +81,7 @@ ax.legend()
 
 plt.show()
 
-# Lets compare the fighters of 2010 vs 2021 
 
-fighters_2010 = combined_fighters.loc[combined_fighters['year'] == 2010, ['fighter', 'Height_cms', 'Reach_cms', 'Weight_lbs']]
-fighters_2021 = combined_fighters.loc[combined_fighters['year'] == 2021, ['fighter', 'Height_cms', 'Reach_cms', 'Weight_lbs']]
-
-
-
-from scipy.stats import ttest_ind, mannwhitneyu, levene, normaltest
-
-# Check for normality using normaltest
-def normality_test(data):
-    t,p = normaltest(data)
-    if p < 0.05:
-        return False
-    return True
-
-# Check for homogeneity of variances using Levene's test
-def equal_variance_test(data1, data2):
-    t,p = levene(data1, data2)
-    if p < 0.05:
-        return False
-    return True
-
-
-# Perform appropriate statistical test based on normality and homogeneity results for each column
-for column in fighters_2010.columns:
-    if column!='fighter':
-        if normality_test(fighters_2010[column]) and normality_test(fighters_2021[column]) and equal_variance_test(fighters_2010[column], fighters_2021[column]):
-            # If both test passed, use independent t-test
-            _, p_value = ttest_ind(fighters_2010[column], fighters_2021[column])
-            print(f"T-test p-value for {column}: {p_value}")
-        else:
-            # Otherwise, use Mann-Whitney U test
-            _, p_value = mannwhitneyu(fighters_2010[column], fighters_2021[column])
-            print(f"Mann-Whitney U test p-value for {column}: {p_value}")
-    
-    # Lets compare the fighters of 2014 vs 2021 
 
 from scipy.stats import ttest_ind, mannwhitneyu, levene, normaltest
 
@@ -133,6 +97,8 @@ def equal_variance_test(data1, data2):
 
 fighters_2010 = combined_fighters.loc[combined_fighters['year'] == 2010, ['fighter', 'Height_cms', 'Reach_cms', 'Weight_lbs']]
 fighters_2021 = combined_fighters.loc[combined_fighters['year'] == 2021, ['fighter', 'Height_cms', 'Reach_cms', 'Weight_lbs']]
+fighters_2014 = combined_fighters.loc[combined_fighters['year'] == 2014, ['fighter', 'Height_cms', 'Reach_cms', 'Weight_lbs']]
+
 
 
 
@@ -152,7 +118,7 @@ def equal_variance_test(data1, data2):
         return False
     return True
 
-
+print("\n\nComparing year 2010 and 2021 height weight and reach")
 # Perform appropriate statistical test based on normality and homogeneity results for each column
 for column in fighters_2010.columns:
     if column!='fighter':
@@ -166,6 +132,8 @@ for column in fighters_2010.columns:
             print(f"Mann-Whitney U test p-value for {column}: {p_value}")
 
 # Lets compare the fighters of 2014 vs 2021 
+
+print("\n\n\nComparing year 2014 and 2021 height weight and reach")
 
 from scipy.stats import ttest_ind, mannwhitneyu, levene, normaltest
 
