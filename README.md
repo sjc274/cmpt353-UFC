@@ -36,10 +36,20 @@ repository
 ## Demo 📝
 
 1) ### Data Cleaning
+- Took 119 columns and performed data cleaning to ensure the accuracy and reliability of the dataset 
+- One of the Example:
+```python
+# Distribute missing values for 'finish_round' based on specified percentages
+round_distribution = {1: 25.8, 2: 15.7, 3: 54.1, 4: 0.6, 5: 3.7}
+for round_num, percentage in round_distribution.items():
+    num_missing = int(missing_rows['finish_round'] * percentage / 100)
+    raw_ufc_data.loc[raw_ufc_data['finish_round'].isnull(), 'finish_round'] = round_num
+    missing_rows['finish_round'] -= num_missing
+```
 
-2) ### Machine Learning
+3) ### Machine Learning
 
-3) ### Stature Data
+4) ### Stature Data
 - To analyze the feature importance: `python3 StatureDataAnalysis.py`
 We made use of built-in feature `feature_importance_` to testify the feature importance:
 ```python
@@ -57,7 +67,6 @@ def ShowFeatureImportance(X, y, model):
     plt.tight_layout()
     plt.show()
 ```
-
 
 - To analyze evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
 We reorgnized the data first, generated and plotted mean value throughout years, and applied normality test on 2010 and 2021 two years' data:
@@ -87,10 +96,13 @@ Please intall the requirement first: `pip install requirement.txt`
 <a name="repro"></a>
 ## 3. Reproduction
 1) ### Data Cleaning
+- For before vs after check out the following files
+	- Before: fight_data.csv
+	- After: fight_data_cleaned.csv
 
-2) ### Machine Learning
+3) ### Machine Learning
 
-3) ### Stature Data
+4) ### Stature Data
 Using the feature importance attribute of tree-based models, we generate the feature importance among three stature data (height, weight and reach) of fighters and plot them using DecisionTree model.
 Here is the result graph:
 ![image](https://github.com/sjc274/cmpt353-UFC/assets/113268694/bb98277a-6f2a-405c-a99b-dcad4f9b6b94)
