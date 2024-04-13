@@ -95,7 +95,7 @@ for idx, feature in enumerate(['Height_cms', 'Reach_cms', 'Weight_lbs'], start=1
 ## 2. Installation
 You can check all results and graphs quickly by checking jupyter notebook files under `ipynb` folder
 
-Please intall the requirement first: `pip install requirement.txt`
+Please intall the requirement first: `pip install -r requirements.txt`
 - To analyze the feature importance: `python3 StatureDataAnalysis.py`
 - To analyze evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
 - 
