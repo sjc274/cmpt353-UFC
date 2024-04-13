@@ -59,8 +59,8 @@ for round_num, percentage in round_distribution.items():
  - At the end, there is a comparison between the models in different iterations.
  - To run this part, either you can directly use 'Machine learning.ipynb' notebook or you can use the 'Machine learning.py' file in the src
  - If you are running .py file, check the code below
-   ``` cmd
-   cmd src
+   ``` bash
+   cd src
    python "Machine Learning.py"
    ```
    The outputs for notebook files are embedded in the notebook itself. For the python files, it will display some information on screen and save the plots
@@ -68,6 +68,7 @@ for round_num, percentage in round_distribution.items():
 
 3) ### Stature Data
 - To analyze the feature importance: `python3 StatureDataAnalysis.py`
+- To analyze evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
 We made use of built-in feature `feature_importance_` to testify the feature importance:
 ```python
 def ShowFeatureImportance(X, y, model):
@@ -105,13 +106,16 @@ for idx, feature in enumerate(['Height_cms', 'Reach_cms', 'Weight_lbs'], start=1
 <a name="installation"></a>
 ## 2. Installation
 You can check all results and graphs quickly by checking jupyter notebook files under `ipynb` folder
-`git clone https://github.com/sjc274/cmpt353-UFC.git`
-`cd cmpt353-UFC.git`
+```bash
+git clone https://github.com/sjc274/cmpt353-UFC.git
+cd cmpt353-UFC.git
+```
 
 Then intall the requirement:
-`pip install -r requirements.txt`
-- To analyze the feature importance: `python3 StatureDataAnalysis.py`
-- To analyze evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
+```bash
+pip install -r requirements.txt
+```
+
 - 
 <a name="repro"></a>
 ## 3. Reproduction
@@ -120,9 +124,10 @@ Then intall the requirement:
 	- Before: fight_data.csv
 	- After: fight_data_cleaned.csv
 
-3) ### Machine Learning
+2) ### Machine Learning
+ Follow the demo and check the results against the ones produced in the notebook files  
 
-4) ### Stature Data
+3) ### Stature Data
 Using the feature importance attribute of tree-based models, we generate the feature importance among three stature data (height, weight and reach) of fighters and plot them using DecisionTree model.
 Here is the result graph:
 ![image](https://github.com/sjc274/cmpt353-UFC/assets/113268694/bb98277a-6f2a-405c-a99b-dcad4f9b6b94)
