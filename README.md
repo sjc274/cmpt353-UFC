@@ -54,14 +54,17 @@ for round_num, percentage in round_distribution.items():
 ```
 
 2) ### Machine Learning
- - It makes use of several machine-learning algorithms and there is a comparison between the models at the end.
- - To see this part, either you can directly use 'Machine learning.ipynb' notebook or you can use the 'Machine learning.py' file in the src
+ - It makes use of several machine-learning algorithms to train the cleaned data.
+ - We have used 3 approaches, for more details check the report
+ - At the end, there is a comparison between the models in different iterations.
+ - To run this part, either you can directly use 'Machine learning.ipynb' notebook or you can use the 'Machine learning.py' file in the src
+ - If you are running .py file, check the code below
    ``` cmd
    cmd src
    python "Machine Learning.py"
    ```
    The outputs for notebook files are embedded in the notebook itself. For the python files, it will display some information on screen and save the plots
-   in the the same folder
+   in the same folder
 
 3) ### Stature Data
 - To analyze the feature importance: `python3 StatureDataAnalysis.py`
