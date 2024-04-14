@@ -35,15 +35,20 @@ repository
 <a name="demo"></a>
 ## Demo 📝
 Steps to run:
-1) Inorder to run our data, you would first have to download the raw data, rename it to "fight_data.csv" and then run the clean data python file.
-2) You can run any of the Python files as you like since they are not codependent on each other from the src folder.
+1) Inorder to run our data, you would first have to download the raw data, rename the master data file to "fight_data.csv" and then run the clean data python file.
+2) You can run any of the Python files as you like since they are not dependent on each other from the src folder.
 3) You can also simply check our Jupiter notebook versions of our file as well in the ipynb folder.
 
 Note: We have kept the raw and cleaned data in the folders so you can skip the first step if you would like.
 
 1) ### Data Cleaning
-- Took 119 columns and performed data cleaning to ensure the accuracy and reliability of the dataset 
-- One of the Example:
+- Took 119 columns and performed data cleaning to ensure the accuracy and reliability of the dataset
+ ``` bash
+   cd src
+   python "Cleaning_data.py"
+   ```
+This will save the cleaned data as fight_data_cleaned.csv
+- Example Code from it:
 ```python
 # Distribute missing values for 'finish_round' based on specified percentages
 round_distribution = {1: 25.8, 2: 15.7, 3: 54.1, 4: 0.6, 5: 3.7}
@@ -67,9 +72,13 @@ for round_num, percentage in round_distribution.items():
    in the same folder
 
 3) ### Stature Data
-- To analyze the feature importance: `python3 StatureDataAnalysis.py`
-- To analyze evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
-We made use of built-in feature `feature_importance_` to testify the feature importance:
+- To analyze the feature importance:
+  ``` bash
+   cd src
+   python "feature_imporatnce.py"
+   ```
+
+- Sample code from feature_imporatnce.py:
 ```python
 def ShowFeatureImportance(X, y, model):
     X_train, X_test, y_train, y_test = train_test_split(X, y)
@@ -86,22 +95,16 @@ def ShowFeatureImportance(X, y, model):
     plt.show()
 ```
 
-- To analyze evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
-We reorgnized the data first, generated and plotted mean value throughout years, and applied normality test on 2010 and 2021 two years' data:
+- To analyze the evolution of UFC fighters' statures: `python3 StatureEvolutionAnalysis.py`
+   ``` bash
+   cd src
+   python "StatureEvolutionAnalysis.py"
+   ```
+- Sample codeWe reorgnized the data first, generated and plotted mean value throughout years, and applied normality test on 2010 and 2021 two years' data:
 ```python
-for idx, feature in enumerate(['Height_cms', 'Reach_cms', 'Weight_lbs'], start=1):
-    plt.subplot(2, 3, idx)
-    data_2010 = fighters_2010[feature]
-    mu_2010, std_2010 = data_2010.mean(), data_2010.std()
-    xmin_2010, xmax_2010 = data_2010.min(), data_2010.max()
-    x_2010 = np.linspace(xmin_2010, xmax_2010, 100)
-    p_2010 = norm.pdf(x_2010, mu_2010, std_2010)
-    plt.plot(x_2010, p_2010, 'k', linewidth=2)
-    plt.hist(data_2010, bins=10, density=True, alpha=0.6, color='g')
-    plt.title(f'Normal Distribution of {feature} (2010)')
-    plt.xlabel(feature)
-    plt.ylabel('Probability Density')
-    plt.grid(True)
+mean_values_by_year['Height_cms_mean'] = combined_fighters.groupby('year')['Height_cms'].mean()
+mean_values_by_year['Weight_lbs_mean'] = combined_fighters.groupby('year')['Weight_lbs'].mean()
+mean_values_by_year['Reach_cms_mean'] = combined_fighters.groupby('year')['Reach_cms'].mean()
 ```
 <a name="installation"></a>
 ## 2. Installation
@@ -116,23 +119,22 @@ Then intall the requirement:
 pip install -r requirements.txt
 ```
 
-- 
 <a name="repro"></a>
 ## 3. Reproduction
+Follow the demo and check the results against the ones produced in the notebook files. Some sample outputs are given below:
 1) ### Data Cleaning
-- For before vs after check out the following files
-	- Before: fight_data.csv
-	- After: fight_data_cleaned.csv
+- The output is a csv file named fight_data_cleaned.csv
 
 2) ### Machine Learning
- Follow the demo and check the results against the ones produced in the notebook files  
+   - This is the model accuracy chart taken from one of the iterations during testing.
+ ![image](https://github.com/sjc274/cmpt353-UFC/blob/main/ipynb/Model%20prediction%20comparison.png) 
 
 3) ### Stature Data
-Using the feature importance attribute of tree-based models, we generate the feature importance among three stature data (height, weight and reach) of fighters and plot them using DecisionTree model.
+- Using the feature importance attribute of tree-based models, we generate the feature importance among three stature data (height, weight and reach) of fighters and plot them using DecisionTree model.
 Here is the result graph:
 ![image](https://github.com/sjc274/cmpt353-UFC/assets/113268694/bb98277a-6f2a-405c-a99b-dcad4f9b6b94)
 
-UFC fighters are increasing since 2010 and reached the peak in 2014. However their stature requirements are not as strict as it used to be before 2010. The average height weight and reach is decreasing year by year.
+- UFC fighters are increasing since 2010 and reached the peak in 2014. However their stature requirements are not as strict as it used to be before 2010. The average height weight and reach is decreasing year by year.
 ```terminal
 	Height_cms_mean	Weight_lbs_mean	Reach_cms_mean	#Fighter_in_the_year
 year				
@@ -149,9 +151,7 @@ year
 2020	176.957520	162.108320	181.306028	580
 2021	176.701261	160.253940	181.465429	551
 ```
-We also did normality test based on each feature to justify if UFC fighters' builds are following the normal distribution.
-Here is the result:
-![image](https://github.com/sjc274/cmpt353-UFC/assets/113268694/a60eb9c2-66cf-4842-bf4b-de7c70fc4808)
+
 
 
 
