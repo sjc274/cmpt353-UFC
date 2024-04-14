@@ -100,7 +100,7 @@ def ShowFeatureImportance(X, y, model):
    cd src
    python "StatureEvolutionAnalysis.py"
    ```
-- Sample codeWe reorgnized the data first, generated and plotted mean value throughout years, and applied normality test on 2010 and 2021 two years' data:
+- Sample code from the file:
 ```python
 mean_values_by_year['Height_cms_mean'] = combined_fighters.groupby('year')['Height_cms'].mean()
 mean_values_by_year['Weight_lbs_mean'] = combined_fighters.groupby('year')['Weight_lbs'].mean()
